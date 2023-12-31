@@ -19,3 +19,7 @@ export interface ThemeSelectorProps {
     theme: string;
     setTheme: (theme: string) => void;
 }
+export interface BackgroundSelectorProps {
+    background: string;
+    setBackground: (background: string) => void;
+}

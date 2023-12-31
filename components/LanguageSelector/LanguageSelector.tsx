@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { LanguageSelectorProps } from '@/interfaces'
 import { ChevronDown } from 'lucide-react'
 import { languages } from '@/utils/utilities'
+import OutsideClickHandler from 'react-outside-click-handler'
 function LanguageSelector({ language, setLanguage, setActiveIcon }: LanguageSelectorProps) {
   const [open, setOpen] = useState(false)
   const taggleDropdown = () => {
@@ -16,6 +17,7 @@ function LanguageSelector({ language, setLanguage, setActiveIcon }: LanguageSele
     setOpen(false)
   }
   return (
+    <OutsideClickHandler onOutsideClick={() => setOpen(false)}>
     <div onClick={taggleDropdown}>
       <p className='py-[5px] text-sm font-medium'>Language</p>
       <div className='dropdown-title capitalize w-[120px]'>
@@ -35,6 +37,7 @@ function LanguageSelector({ language, setLanguage, setActiveIcon }: LanguageSele
           )
         })}</div>}
     </div>
+    </OutsideClickHandler>
   )
 }
 
