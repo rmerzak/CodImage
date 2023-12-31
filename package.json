@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "ace-builds": "^1.32.3",
+    "lucide-react": "^0.303.0",
     "next": "14.0.4",
     "re-resizable": "^6.9.11",
     "react": "^18",
