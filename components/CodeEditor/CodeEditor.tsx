@@ -44,13 +44,17 @@ import "ace-builds/src-noconflict/theme-tomorrow_night_eighties";
 
 
 import { CodeEditorProps } from "@/interfaces";
+import { initialCode } from "@/utils/utilities";
 function CodeEditor({ language, theme, icon, background, currentPading }: CodeEditorProps) {
     const [width, setWidth] = useState<number>(1000)
     const [height, setHeight] = useState<number>(500)
+    const [title, setTitle] = useState<string>('Untitled-1')
+    const [code, setCode] = useState<string>(initialCode)
+
     // @ts-ignore
     const handleResize = (evt, direction, ref, pos) => {
         const newHeight = ref.style.height;
-        setHeight(parseInt(newHeight))
+        setHeight(parseInt(newHeight,10))
     }
     const updateSize = () => {
         setWidth(window.innerWidth)
@@ -62,7 +66,7 @@ function CodeEditor({ language, theme, icon, background, currentPading }: CodeEd
     }, [])
     return (
         <Resizable className=" resize-container relative" minHeight={466} minWidth={510}  maxWidth={1000} defaultSize={{width:width,height:height || 500}} onResize={handleResize} style={{background:background}}>
-        <div className="code-block" >
+        <div className="code-block" style={{padding:currentPading}} >
             <div className="code-title h-[52px] px-4 flex items-center justify-between bg-black bg-opacity-80">
                 <div className="dots flex items-center gap-1">
                     <div className="w-3 h-3 rounded-full bg-[#ff5656]"></div>
@@ -70,10 +74,10 @@ function CodeEditor({ language, theme, icon, background, currentPading }: CodeEd
                     <div className="w-3 h-3 rounded-full bg-[#67f772]"></div>
                 </div>
                 <div className="input-control w-full">
-                    <input type="text" className="w-full text-[hsla(0,0%,100%,.6)] outline-none font-medium text-center bg-transparent"/>
+                    <input type="text" value={title} onChange={(e)=>setTitle(e.target.value)} className="w-full text-[hsla(0,0%,100%,.6)] outline-none font-medium text-center bg-transparent"/>
                 </div>
-                <div className="icon flex justify-center items-center p-1 bg-black bg-opacity-30  w-[40px] h-[40px]rounded-sm">
-                    <img src={icon} alt="icon" />
+                <div className="icon flex justify-center items-center p-1 bg-black bg-opacity-30  rounded-sm">
+                    <img src={icon} className="w-[20px]" alt="icon" />
                 </div>
             </div>
             <AceEditor
@@ -85,7 +89,7 @@ function CodeEditor({ language, theme, icon, background, currentPading }: CodeEd
                 showGutter={false}
                 wrapEnabled={true}
                 highlightActiveLine={false}
-                value={`function () { return "Hello World"; }`}
+                value={code}
                 editorProps={{ $blockScrolling: true }}
                 // setOptions={{
                 //     enableBasicAutocompletion: true,
@@ -94,6 +98,7 @@ function CodeEditor({ language, theme, icon, background, currentPading }: CodeEd
                 //     showLineNumbers: true,
                 //     tabSize: 2,
                 // }}
+                height={`calc(${height}px - ${currentPading} - ${currentPading} - 52px)`}
                 className="ace-editor-container"
             />
         </div>

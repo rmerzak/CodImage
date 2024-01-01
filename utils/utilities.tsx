@@ -60,3 +60,26 @@ export const backgrounds = [
     "linear-gradient(140deg, rgb(165, 142, 251),rgb(233, 191, 248))",
     "linear-gradient(270deg, #514a9d, #24c6dc)",
 ]
+
+export const initialCode = `
+function applyForJob(availablePositions) {
+    const message = availablePositions > 0
+        ? \` 
+        Dear Hiring Wizard,
+        
+        I wield JavaScript spells! 🧙♂️ Ready to bring magic to your codebas
+        .If there are \${availablePositions} spots, let's make sparks fly! ✨💻
+        Enchantingly,
+        rmerzak\`
+        : \`
+        Dear Future Collaborator,
+        
+        On a quest for opportunities! 🗺️ If no positions now, let's connect and
+        gear up for the epic journey ahead.
+        Adventure-ready! 🚀🌌
+        Whimsically,
+        rmerzak\`;
+
+    return message;
+}
+`
