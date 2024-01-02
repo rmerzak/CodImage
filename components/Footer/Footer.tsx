@@ -15,13 +15,12 @@ function Footer() {
         <div className='flex items-center gap-10 py-16'>
             <Link className='text-sm text-gray-400 hover:text-gray-500' href='https://www.rmerzak.me'>rmerzak.me</Link>
             <Link href='' className='flex items-center text-sm  font-medium hover:text-slate-200 ease-in-out'>
-                <span className='pr-2'>Made By</span>
+                <div className='relative flex items-center justify-between'>
+                <div className='flex items-center justify-end w-full h-full'>Made By</div>
                 {/* <Heart className='w-4 h-4 text-red-500' /> */}
-                <div className=' w-[30px] h-[30px] flex items-center justify-center'>
-                    <Lottie className='w-full h-full'
+                    <Lottie
                         animationData={animation}
-                        height={200}
-                        width={200}
+                        className='flex float-end w-[100px] h-[100px] '
                     />
                 </div>
             </Link>
