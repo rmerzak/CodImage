@@ -1,7 +1,7 @@
 import { languages } from "@/utils/utilities";
 
 export interface CodeEditorProps {
-    onCodeChange: (code: string) => void;
+    //onCodeChange: (code: string) => void;
     language: string;
     theme: string;
     icon: string;
