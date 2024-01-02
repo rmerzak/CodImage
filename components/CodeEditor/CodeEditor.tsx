@@ -67,6 +67,10 @@ function CodeEditor({ language, theme, icon, background, currentPading }: CodeEd
     return (
         <Resizable className=" resize-container relative" minHeight={466} minWidth={510}  maxWidth={1000} defaultSize={{width:width,height:height || 500}} onResize={handleResize} style={{background:background}}>
         <div className="code-block" style={{padding:currentPading}} >
+            <div className="handle handle-top absolute left-1/2 top-[-4px] w-2 translate-x-[-50%] h-2 rounded-full bg-slate-300 hover:bg-slate-50 "></div>
+            <div className="handle handle-bottom absolute left-1/2 bottom-[-4px] w-2 translate-x-[-50%] h-2 rounded-full bg-slate-300 hover:bg-slate-50 "></div>
+            <div className="handle handle-left absolute left-0 top-1/2 w-2 translate-x-[-50%] h-2 rounded-full bg-slate-300 hover:bg-slate-50 "></div>
+            <div className="handle handle-right absolute right-[-8px] top-1/2 w-2 translate-x-[-50%] h-2 rounded-full bg-slate-300 hover:bg-slate-50 "></div>
             <div className="code-title h-[52px] px-4 flex items-center justify-between bg-black bg-opacity-80">
                 <div className="dots flex items-center gap-1">
                     <div className="w-3 h-3 rounded-full bg-[#ff5656]"></div>
@@ -74,7 +78,7 @@ function CodeEditor({ language, theme, icon, background, currentPading }: CodeEd
                     <div className="w-3 h-3 rounded-full bg-[#67f772]"></div>
                 </div>
                 <div className="input-control w-full">
-                    <input type="text" value={title} onChange={(e)=>setTitle(e.target.value)} className="w-full text-[hsla(0,0%,100%,.6)] outline-none font-medium text-center bg-transparent"/>
+                    <input type="text" value={title} onChange={(e)=>setTitle(e.target.value)} className="w-full text-[hsla(0,0%,100%,.6)] leading-9 outline-none font-medium text-center bg-transparent"/>
                 </div>
                 <div className="icon flex justify-center items-center p-1 bg-black bg-opacity-30  rounded-sm">
                     <img src={icon} className="w-[20px]" alt="icon" />

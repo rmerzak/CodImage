@@ -11,6 +11,7 @@
   "dependencies": {
     "ace-builds": "^1.32.3",
     "classifier": "^1.0.0",
+    "html2canvas": "^1.4.1",
     "language-classifier": "^0.0.1",
     "lucide-react": "^0.303.0",
     "natural": "^6.10.4",
