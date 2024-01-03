@@ -1,9 +1,8 @@
-import React, { use, useEffect, useRef, useState } from "react";
-import { Flex, Heading, Input, Button, Box, useToast, Image, Spinner, Progress } from "@chakra-ui/react";
+import React, {  useEffect, useRef, useState } from "react";
 import Tesseract, { createWorker } from "tesseract.js";
-import { Download, Upload } from "lucide-react";
+import {  Upload } from "lucide-react";
 import { ImageToTextProps } from "@/interfaces";
-import { Circles, RotatingLines } from "react-loader-spinner";
+import { ColorRing } from "react-loader-spinner";
 
 const ImageToText = ({ setCode }: ImageToTextProps) => {
   const [outText, setOutText] = useState<string>("");
@@ -49,16 +48,14 @@ const ImageToText = ({ setCode }: ImageToTextProps) => {
     <div className="export-btn self-center ml-auto flex items-center justify-center">
       <input type="file" ref={inputRef} onChange={handleChange} className="hidden" accept="image/png, image/jpg, image/jpeg" />
       {ocrLoad === true ? (
-          <RotatingLines
-            visible={true}
-            height="40"
-            width="40"
-            color="#fff"
-            strokeWidth="5"
-            animationDuration="0.75"
-            ariaLabel="rotating-lines-loading"
-            wrapperStyle={{}}
-            wrapperClass=""
+          <ColorRing
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="color-ring-loading"
+          wrapperStyle={{}}
+          wrapperClass="color-ring-wrapper"
+          colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
           />
       ) :
         <button onClick={() => { inputRef?.current?.click(); handleConvert }} className='flex items-center gap-2 py-2 px-3 rounded-md bg-blue-400 text-sm text-blue-400 font-medium bg-opacity-10 hover:bg-opacity-80 hover:text-slate-50 ease-in-out transition-all duration-300'>
