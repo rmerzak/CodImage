@@ -13,10 +13,9 @@ const ImageToText = ({ setCode }: ImageToTextProps) => {
     logger: (m) => console.log(m),
   });
   const doOCR = async () => {
-    Tesseract.recognize(fileUrl, "eng", { logger: (m) => console.log("inside = ", m.status, m.progress) }).then(({ data: { text } }) => {
+    Tesseract.recognize(fileUrl, "eng").then(({ data: { text } }) => {
       setOutText(text);
       setCode(text);
-      console.log(text);
       setOcrLoad(false);
     });
   };
