@@ -22,7 +22,7 @@ export interface LanguageSelectorProps {
   }
 export interface BackgroundSelectorProps {
     background: string;
-    setBackground: (background: string) => void;› 
+    setBackground: (background: string) => void;
 }
 export interface PaddingSelectorProps {
     padding: string[];
