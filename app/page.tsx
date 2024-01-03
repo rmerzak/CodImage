@@ -45,7 +45,7 @@ export default function Home() {
   }
   return (
     <main className='h-[100vh] flex flex-col items-center justify-between'>
-      <header className='flex gap-6 mt-6 w-[940px] p-5 fixed top-0 left-1/2 translate-x-[-50%] z-10 bg-[#191919] rounded border border-[#3c3c3c] shadow-md'>
+      <header className='flex gap-6 mt-6 w-[990px] p-5 fixed top-0 left-1/2 translate-x-[-50%] z-10 bg-[#191919] rounded border border-[#3c3c3c] shadow-md'>
         <LanguageSelector language={language} setLanguage={setLanguage} setActiveIcon={setActiveIcon} />
         <ThemeSelector theme={theme} setTheme={setTheme} />
         <BackgroudSelector background={background} setBackground={setBackground} />
