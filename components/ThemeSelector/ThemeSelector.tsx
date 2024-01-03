@@ -19,16 +19,16 @@ function ThemeSelector({ theme, setTheme }: ThemeSelectorProps) {
         <OutsideClickHandler onOutsideClick={() => setOpen(false)}>
         <div className='theme-selector' onClick={taggleDropdown}>
             <p className='py-[5px] text-sm font-medium'>Code Colors</p>
-            <div className='dropdown-title capitalize w-[120px]'>
+            <div className='dropdown-title capitalize w-[125px]'>
                 {theme}
                 <ChevronDown />
             </div>
             {
                 open &&
-                <div className='dropdown-menu w-[120px] top-[94px]'>
+                <div className='dropdown-menu scrollbar-thin scrollbar-track-black scrollbar-thumb-rose-500 w-[125px] top-[94px] max-h-[200px] overflow-y-auto overflow-x-hidden'>
                     {themes.map((theme, i) => {
                         return (
-                            <button key={i} onClick={ () => handleThemeChange(theme)} className='capitalize text-left text-[14px]'>{theme}</button>
+                            <button key={i} onClick={ () => handleThemeChange(theme.name)} className='capitalize text-left text-[14px]'>{theme.value}</button>
                         )
                     })}
                 </div>

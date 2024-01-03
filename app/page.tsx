@@ -14,7 +14,7 @@ import ImageToText from '@/components/ImageToText/ImageToText'
 export default function Home() {
   const [language, setLanguage] = useState(languages[0].name)
   const [activeIcon, setActiveIcon] = useState<string>(languages[0].icons)
-  const [theme, setTheme] = useState(themes[0])
+  const [theme, setTheme] = useState(themes[0].name)
   const [background, setBackground] = useState<string>(backgrounds[0])
   const [padding, setPadding] = useState<string[]>(['1rem', '2rem', '3rem', '4rem'])
   const [currentPading, setCurrentPading] = useState<string>(padding[3])
@@ -51,8 +51,8 @@ export default function Home() {
         <BackgroudSelector background={background} setBackground={setBackground} />
         <PaddingSelector padding={padding} currentPading={currentPading} setCurrentPading={setCurrentPading} />
         <div className="export-btn self-center ml-auto">
-          <button onClick={exportPng} className='flex items-center gap-2 py-2 px-3 rounded-md bg-blue-400 text-sm text-blue-400 font-medium bg-opacity-10 hover:bg-opacity-80 hover:text-slate-50 ease-in-out transition-all duration-300'>
-            Export PNG
+        <p className='py-[5px] text-sm font-medium'>Export PNG</p>
+          <button onClick={exportPng} className='flex items-center justify-center w-[80px] gap-2 py-2 px-3 rounded-md bg-blue-400 text-sm text-blue-400 font-medium bg-opacity-10 hover:bg-opacity-80 hover:text-slate-50 ease-in-out transition-all duration-300'>
             <Download />
           </button>
         </div>
@@ -61,7 +61,7 @@ export default function Home() {
       <div className='code-editor-ref mt-[14rem]' ref={editorRef}>
         <CodeEditor language={language} icon={activeIcon} theme={theme} background={background} currentPading={currentPading} code={code} />
       </div>
-      
+      <Footer />
     </main>
   )
 }

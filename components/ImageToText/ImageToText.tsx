@@ -50,18 +50,23 @@ const ImageToText = ({ setCode }: ImageToTextProps) => {
       {ocrLoad === true ? (
           <ColorRing
           visible={true}
-          height="80"
-          width="80"
+          height="50"
+          width="50"
           ariaLabel="color-ring-loading"
           wrapperStyle={{}}
           wrapperClass="color-ring-wrapper"
           colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
           />
       ) :
-        <button onClick={() => { inputRef?.current?.click(); handleConvert }} className='flex items-center gap-2 py-2 px-3 rounded-md bg-blue-400 text-sm text-blue-400 font-medium bg-opacity-10 hover:bg-opacity-80 hover:text-slate-50 ease-in-out transition-all duration-300'>
-          Import PNG
+      <div className="">
+
+          <p className='py-[5px] text-sm font-medium'>Import PNG</p>
+      <button onClick={() => { inputRef?.current?.click(); handleConvert }} className='flex items-center justify-center gap-2 py-2 px-3 rounded-md bg-blue-400 text-sm text-blue-400 font-medium bg-opacity-10 hover:bg-opacity-80 hover:text-slate-50 ease-in-out transition-all duration-300 w-[80px]'>
+          
           <Upload />
-        </button>}
+        </button>
+      </div>
+        }
     </div>
 
   );
