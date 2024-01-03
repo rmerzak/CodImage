@@ -47,7 +47,7 @@ import { CodeEditorProps } from "@/interfaces";
 import { initialCode } from "@/utils/utilities";
 function CodeEditor({ language, theme, icon, background, currentPading , code}: CodeEditorProps) {
     const [width, setWidth] = useState<number>(1000)
-    const [height, setHeight] = useState<number>(500)
+    const [height, setHeight] = useState<number>(700)
     const [title, setTitle] = useState<string>('Untitled-1')
     
 
