@@ -45,11 +45,11 @@ import "ace-builds/src-noconflict/theme-tomorrow_night_eighties";
 
 import { CodeEditorProps } from "@/interfaces";
 import { initialCode } from "@/utils/utilities";
-function CodeEditor({ language, theme, icon, background, currentPading }: CodeEditorProps) {
+function CodeEditor({ language, theme, icon, background, currentPading , code}: CodeEditorProps) {
     const [width, setWidth] = useState<number>(1000)
     const [height, setHeight] = useState<number>(500)
     const [title, setTitle] = useState<string>('Untitled-1')
-    const [code, setCode] = useState<string>(initialCode)
+    
 
     // @ts-ignore
     const handleResize = (evt, direction, ref, pos) => {

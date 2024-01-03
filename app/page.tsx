@@ -5,10 +5,12 @@ import Footer from '@/components/Footer/Footer'
 import LanguageSelector from '@/components/LanguageSelector/LanguageSelector'
 import PaddingSelector from '@/components/PadingSelector/PaddingSelector'
 import ThemeSelector from '@/components/ThemeSelector/ThemeSelector'
-import { backgrounds, languages, themes } from '@/utils/utilities'
+import { backgrounds, initialCode, languages, themes } from '@/utils/utilities'
 import { Download } from 'lucide-react'
 import { useRef, useState } from 'react'
 import html2canvas from 'html2canvas'
+import ImageToText from '@/components/ImageToText/ImageToText'
+
 export default function Home() {
   const [language, setLanguage] = useState(languages[0].name)
   const [activeIcon, setActiveIcon] = useState<string>(languages[0].icons)
@@ -16,6 +18,7 @@ export default function Home() {
   const [background, setBackground] = useState<string>(backgrounds[0])
   const [padding, setPadding] = useState<string[]>(['1rem', '2rem', '3rem', '4rem'])
   const [currentPading, setCurrentPading] = useState<string>(padding[3])
+  const [code, setCode] = useState<string>(initialCode)
   const editorRef = useRef(null)
   const exportPng = async () => {
     const editorElement = editorRef.current
@@ -53,11 +56,12 @@ export default function Home() {
             <Download />
           </button>
         </div>
+        <ImageToText setCode={setCode}/>
       </header>
       <div className='code-editor-ref mt-[14rem]' ref={editorRef}>
-        <CodeEditor language={language} icon={activeIcon} theme={theme} background={background} currentPading={currentPading} />
+        <CodeEditor language={language} icon={activeIcon} theme={theme} background={background} currentPading={currentPading} code={code} />
       </div>
-      <Footer/>
+      
     </main>
   )
 }
